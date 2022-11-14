@@ -1,18 +1,18 @@
+import React from 'react';
+
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'mdb-ui-kit/css/mdb.min.css';
+
+import Navbar from './components/Navbar';
 
 function App() {
 	return (
-		<div className='container'>
-			<div className='row'>
-				<div className='col-6'>Column #1</div>
-				<div className='col-6'>
-					<span>
-						<i className="fas fa-home"/>
-					</span>
-				</div>
-			</div>
-		</div>
+		<React.Fragment>
+			<header>
+				<Navbar />
+			</header>
+		</React.Fragment>
 	);
 }
 
