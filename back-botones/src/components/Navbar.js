@@ -1,6 +1,18 @@
 import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+
+const languages = [
+	{ name: 'English', country_code: 'us' },
+	{ name: 'Español', country_code: 'es' },
+	{ name: 'Deutsch', country_code: 'de' },
+	{ name: 'عربي', country_code: 'ae' },
+];
 
 export default function Navbar() {
+	const navigate = useNavigate();
+	//TODO Get current Language
+	const currentLanguageCode = 'gb';
+
 	return (
 		<nav className='navbar navbar-expand-lg navbar-light bg-light'>
 			{/* Wrapper */}
@@ -19,38 +31,83 @@ export default function Navbar() {
 
 				{/* Collapsible wrapper */}
 				<div className='collapse navbar-collapse' id='navbarSupportedContent'>
-					<a className='navbar-brand mt-2 mt-lg-0' href='#!'>
+					<Link className='navbar-brand mt-2 mt-lg-0' to='/'>
 						<img
-							src='https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp'
-							// src='../../public/logo.ico'
-							height='15'
+							onClick={() => {
+								navigate('/');
+								window.scrollTo(0, 0);
+							}}
+							src='./logo192.png'
+							height='50'
 							alt='Dilo con Botones logo'
 							loading='lazy'
 						/>
-					</a>
+					</Link>
 
 					{/* Left links */}
 					<ul className='navbar-nav me-auto mb-2 mb-lg-0'>
 						<li className='nav-item'>
-							<a className='nav-link' href='#!'>
-								Dashboard
-							</a>
+							<Link className='nav-link' to='/products'>
+								Products
+							</Link>
 						</li>
 						<li className='nav-item'>
-							<a className='nav-link' href='#!'>
-								Team
-							</a>
+							<Link className='nav-link' to='#!'>
+								Press
+							</Link>
 						</li>
 						<li className='nav-item'>
-							<a className='nav-link' href='#!'>
-								Projects
-							</a>
+							<Link className='nav-link' to='#!'>
+								Contact
+							</Link>
 						</li>
 					</ul>
 				</div>
 
 				{/* Right elements */}
 				<div className='d-flex align-items-center'>
+					{/* Language selector */}
+					<div className='dropdown mx-3'>
+						<Link
+							className='dropdown-toggle d-flex align-items-center btn btn-dark'
+							id='dropdownMenuLanguage'
+							role='button'
+							data-mdb-toggle='dropdown'
+							aria-expanded='false'>
+							<i className='fas fa-thin fa-globe' />
+						</Link>
+						<ul
+							className='dropdown-menu'
+							aria-labelledby='dropdownMenuLanguage'>
+							{languages.map(({ name, country_code, index }) => {
+								return (
+									<li key={index}>
+										<button
+											key={index}
+											className='dropdown-item'
+											onClick={() => {
+												console.log(country_code);
+												window.location.reload();
+											}}
+											disabled={country_code === currentLanguageCode}>
+											<div dir={country_code !== 'ae' ? 'ltr' : 'rtl'}>
+												<span
+													key={index}
+													style={{
+														opacity:
+															country_code === currentLanguageCode ? 0.5 : 1,
+													}}
+													className={`fi fi-${country_code} mx-3`}
+												/>
+												{name}
+											</div>
+										</button>
+									</li>
+								);
+							})}
+						</ul>
+					</div>
+
 					{/* Shopping cart */}
 					<a className='text-reset me-3' href='#!'>
 						<i className='fas fa-shopping-cart' />
