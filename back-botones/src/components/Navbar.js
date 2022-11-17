@@ -109,9 +109,9 @@ export default function Navbar() {
 					</div>
 
 					{/* Shopping cart */}
-					<a className='text-reset me-3' href='#!'>
+					<Link className='text-reset me-3' to='/cart'>
 						<i className='fas fa-shopping-cart' />
-					</a>
+					</Link>
 
 					{/* Notifications */}
 					<div className='dropdown'>

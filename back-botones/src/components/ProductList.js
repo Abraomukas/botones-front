@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from './Navbar';
 
 import Product from './Product';
+import Title from './Title';
 
 export default function ProductList() {
 	return (
@@ -10,6 +11,7 @@ export default function ProductList() {
 				<Navbar />
 			</header>
 			<main>
+				<Title text='Our products' />
 				{/* Product grid */}
 				<div className='container'>
 					<div className='row '>
