@@ -3,6 +3,7 @@ import Navbar from './Navbar';
 
 import Product from './Product';
 import Title from './Title';
+import { ProductConsumer } from '../context';
 
 export default function ProductList() {
 	return (
@@ -15,21 +16,17 @@ export default function ProductList() {
 				{/* Product grid */}
 				<div className='container'>
 					<div className='row '>
-						<div className='col-lg-3 col-md-6'>
-							<Product />
-						</div>
-
-						<div className='col-lg-3 col-md-6'>
-							<Product />
-						</div>
-
-						<div className='col-lg-3 col-md-6'>
-							<Product />
-						</div>
-
-						<div className='col-lg-3 col-md-6'>
-							<Product />
-						</div>
+						<ProductConsumer>
+							{(data) => {
+								return data.products.map((product) => {
+									return (
+										<div className='col-lg-3 col-md-6'>
+											<Product key={product.id} />
+										</div>
+									);
+								});
+							}}
+						</ProductConsumer>
 					</div>
 				</div>
 			</main>
