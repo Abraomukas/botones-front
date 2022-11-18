@@ -21,7 +21,7 @@ export default function ProductList() {
 								return data.products.map((product) => {
 									return (
 										<div className='col-lg-3 col-md-6'>
-											<Product key={product.id} />
+											<Product key={product.id} product={product} />
 										</div>
 									);
 								});
