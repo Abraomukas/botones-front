@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Navbar from './Navbar';
-import Title from './Title';
+import Navbar from '../components/Navbar';
+import Title from '../components/Title';
 
 export default function Cart() {
 	return (

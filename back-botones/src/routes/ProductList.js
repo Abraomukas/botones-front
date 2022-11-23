@@ -1,8 +1,8 @@
 import React from 'react';
-import Navbar from './Navbar';
+import Navbar from '../components/Navbar';
 
-import Product from './Product';
-import Title from './Title';
+import Product from '../components/Product';
+import Title from '../components/Title';
 import { ProductConsumer } from '../context';
 
 export default function ProductList() {
