@@ -55,6 +55,7 @@ export default class ProductDetails extends Component {
 												disabled={inCart ? true : false}
 												onClick={() => {
 													product.addToCart(id);
+													product.openModal(id);
 												}}>
 												{inCart ? 'in the cart already' : 'add to cart'}
 											</ButtonContainer>
