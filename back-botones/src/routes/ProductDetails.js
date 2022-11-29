@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+
 import { ButtonContainer } from '../components/Button';
 import Navbar from '../components/Navbar';
 

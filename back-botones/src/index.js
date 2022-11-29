@@ -9,6 +9,7 @@ import ProductList from './routes/ProductList';
 import ProductDetails from './routes/ProductDetails';
 import Cart from './routes/Cart';
 import NotFound from './routes/NotFound';
+import Modal from './components/Modal';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -22,6 +23,7 @@ root.render(
 					<Route path='/cart' element={<Cart />} />
 					<Route element={<NotFound />} />
 				</Routes>
+				<Modal />
 			</BrowserRouter>
 		</ProductProvider>
 	</React.StrictMode>
