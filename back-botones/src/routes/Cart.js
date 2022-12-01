@@ -2,6 +2,7 @@ import React from 'react';
 
 import Navbar from '../components/Navbar';
 import Title from '../components/Title';
+import CartColumns from '../components/CartColumns';
 
 export default function Cart() {
 	return (
@@ -10,9 +11,9 @@ export default function Cart() {
 				<Navbar />
 			</header>
 			<main>
-				<Title text='My cart' />
 				<section>
-					<h3>Coming soon...</h3>
+					<Title text='My cart' />
+					<CartColumns />
 				</section>
 			</main>
 		</div>
