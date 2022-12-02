@@ -2,7 +2,9 @@ import React from 'react';
 
 import Navbar from '../components/Navbar';
 import Title from '../components/Title';
-import CartColumns from '../components/CartColumns';
+import CartColumns from '../components/cart/CartColumns';
+import EmptyCart from '../components/cart/EmptyCart';
+import { ProductConsumer } from '../context';
 
 export default function Cart() {
 	return (
@@ -12,8 +14,22 @@ export default function Cart() {
 			</header>
 			<main>
 				<section>
-					<Title text='My cart' />
-					<CartColumns />
+					<ProductConsumer>
+						{(product) => {
+							const cart = { product };
+
+							if (cart.length > 0) {
+								return (
+									<React.Fragment>
+										<Title text='My cart' />
+										<CartColumns />
+									</React.Fragment>
+								);
+							} else {
+								return <EmptyCart />;
+							}
+						}}
+					</ProductConsumer>
 				</section>
 			</main>
 		</div>
