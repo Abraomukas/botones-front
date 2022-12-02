@@ -1,5 +1,4 @@
 import React from 'react';
-import Navbar from '../components/Navbar';
 
 import Product from '../components/Product';
 import Title from '../components/Title';
@@ -7,11 +6,8 @@ import { ProductConsumer } from '../context';
 
 export default function ProductList() {
 	return (
-		<div>
-			<header>
-				<Navbar />
-			</header>
-			<main>
+		<main>
+			<div className='container-fluid'>
 				<Title text='Our products' />
 				{/* Product grid */}
 				<div className='container'>
@@ -29,7 +25,7 @@ export default function ProductList() {
 						</ProductConsumer>
 					</div>
 				</div>
-			</main>
-		</div>
+			</div>
+		</main>
 	);
 }

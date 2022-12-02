@@ -58,9 +58,14 @@ class ProductProvider extends Component {
 		product.count = 1;
 		const price = product.price;
 		product.total = price;
+
 		this.setState(
 			() => {
-				return { products: tmpProducts, cart: [...this.state.cart, product] };
+				return {
+					products: tmpProducts,
+					cart: [...this.state.cart, product],
+					details: { ...product },
+				};
 			},
 			() => {
 				console.log(this.state);

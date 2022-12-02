@@ -10,12 +10,14 @@ import ProductDetails from './routes/ProductDetails';
 import Cart from './routes/Cart';
 import NotFound from './routes/NotFound';
 import Modal from './components/Modal';
+import Navbar from './components/Navbar';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 	<React.StrictMode>
 		<ProductProvider>
 			<BrowserRouter>
+				<Navbar />
 				<Routes>
 					<Route path='/' element={<App />} />
 					<Route path='/products' element={<ProductList />} />

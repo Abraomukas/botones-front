@@ -1,37 +1,33 @@
 import React from 'react';
 
-import Navbar from '../components/Navbar';
 import Title from '../components/Title';
-import CartColumns from '../components/cart/CartColumns';
-import EmptyCart from '../components/cart/EmptyCart';
+import Columns from '../components/cart/Columns';
+import Empty from '../components/cart/Empty';
+import List from '../components/cart/List';
 import { ProductConsumer } from '../context';
 
 export default function Cart() {
 	return (
-		<div>
-			<header>
-				<Navbar />
-			</header>
-			<main>
-				<section>
-					<ProductConsumer>
-						{(product) => {
-							const cart = { product };
+		<main>
+			<section>
+				<ProductConsumer>
+					{(data) => {
+						const { cart } = data;
 
-							if (cart.length > 0) {
-								return (
-									<React.Fragment>
-										<Title text='My cart' />
-										<CartColumns />
-									</React.Fragment>
-								);
-							} else {
-								return <EmptyCart />;
-							}
-						}}
-					</ProductConsumer>
-				</section>
-			</main>
-		</div>
+						if (cart.length > 0) {
+							return (
+								<React.Fragment>
+									<Title text='My cart' />
+									<Columns />
+									<List product={data} />
+								</React.Fragment>
+							);
+						} else {
+							return <Empty />;
+						}
+					}}
+				</ProductConsumer>
+			</section>
+		</main>
 	);
 }
