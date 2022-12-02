@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function EmptyCart() {
+export default function Empty() {
 	return (
 		<div className='container mt-5'>
 			<div className='row'>

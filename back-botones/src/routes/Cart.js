@@ -19,7 +19,7 @@ export default function Cart() {
 								<React.Fragment>
 									<Title text='My cart' />
 									<Columns />
-									<List product={data} />
+									<List data={data} />
 								</React.Fragment>
 							);
 						} else {
