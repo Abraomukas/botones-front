@@ -57,6 +57,12 @@ export default function Item({ item, product }) {
 					<i className='fas fa-trash'></i>
 				</div>
 			</div>
+			{/* Total*/}
+			<div className='col-10 mx-auto co-lg-2'>
+				<span className='d-lg-none'>
+					<strong>item total : ${total}</strong>
+				</span>
+			</div>
 		</div>
 	);
 }
