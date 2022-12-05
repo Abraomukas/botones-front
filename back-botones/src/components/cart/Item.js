@@ -15,14 +15,14 @@ export default function Item({ item, product }) {
 					alt='product'
 				/>
 			</div>
-			{/* Title */}
+			{/* Name */}
 			<div className='col-10 mx-auto col-lg-2'>
-				<span className='d-lg-none'>product: </span>
+				<span className='d-lg-none'>product : </span>
 				{title}
 			</div>
 			{/* Price */}
 			<div className='col-10 mx-auto col-lg-2'>
-				<span className='d-lg-none'>price: </span>
+				<span className='d-lg-none'>price : </span>
 				{price}
 			</div>
 			{/* Buttons */}
@@ -48,7 +48,7 @@ export default function Item({ item, product }) {
 				</div>
 			</div>
 			{/* Remove item */}
-			<div className='col-10 mx-auto co-lg-2'>
+			<div className='col-10 mx-auto col-lg-2'>
 				<div
 					className='cart-icon'
 					onClick={() => {
@@ -58,10 +58,8 @@ export default function Item({ item, product }) {
 				</div>
 			</div>
 			{/* Total*/}
-			<div className='col-10 mx-auto co-lg-2'>
-				<span className='d-lg-none'>
-					<strong>item total : ${total}</strong>
-				</span>
+			<div className='col-10 mx-auto col-lg-2'>
+				<strong>item total : ${total}</strong>
 			</div>
 		</div>
 	);
