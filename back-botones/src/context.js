@@ -87,7 +87,25 @@ class ProductProvider extends Component {
 	};
 
 	increment = (id) => {
-		console.log('This is the increment method!');
+		let tmpCart = [...this.state.cart];
+		const selectedProduct = tmpCart.find((item) => {
+			return item.id === id;
+		});
+
+		const index = tmpCart.indexOf(selectedProduct);
+		const product = tmpCart[index];
+
+		product.count += 1;
+		product.total += product.count * product.price;
+
+		this.setState(
+			() => {
+				return { cart: [...tmpCart] };
+			},
+			() => {
+				this.addTotals();
+			}
+		);
 	};
 
 	decrement = (id) => {
