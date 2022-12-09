@@ -1,11 +1,29 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
+const links = [
+	{ text: 'Products', to: '/products' },
+	{ text: 'Press', to: '#!' },
+	{ text: 'Contact', to: '#!' },
+];
+
 const languages = [
 	{ name: 'English', country_code: 'us' },
 	{ name: 'Español', country_code: 'es' },
 	{ name: 'Deutsch', country_code: 'de' },
 	{ name: 'عربي', country_code: 'ae' },
+];
+
+const notifications = [
+	{ text: 'Some news', to: '#!' },
+	{ text: 'Another news', to: '#!' },
+	{ text: 'Something else here', to: '#!' },
+];
+
+const myProfile = [
+	{ text: 'My profile', to: '#!' },
+	{ text: 'Settings', to: '#!' },
+	{ text: 'Logout', to: '#!' },
 ];
 
 export default function Navbar() {
@@ -47,21 +65,15 @@ export default function Navbar() {
 
 						{/* Left links */}
 						<ul className='navbar-nav me-auto mb-2 mb-lg-0'>
-							<li className='nav-item'>
-								<Link className='nav-link' to='/products'>
-									Products
-								</Link>
-							</li>
-							<li className='nav-item'>
-								<Link className='nav-link' to='#!'>
-									Press
-								</Link>
-							</li>
-							<li className='nav-item'>
-								<Link className='nav-link' to='#!'>
-									Contact
-								</Link>
-							</li>
+							{links.map(({ text, to, index }) => {
+								return (
+									<li key={index} className='nav-item'>
+										<Link key={index} className='nav-link' to={to}>
+											{text}
+										</Link>
+									</li>
+								);
+							})}
 						</ul>
 					</div>
 
@@ -91,7 +103,9 @@ export default function Navbar() {
 													window.location.reload();
 												}}
 												disabled={country_code === currentLanguageCode}>
-												<div dir={country_code !== 'ae' ? 'ltr' : 'rtl'}>
+												<div
+													key={index}
+													dir={country_code !== 'ae' ? 'ltr' : 'rtl'}>
 													<span
 														key={index}
 														style={{
@@ -125,27 +139,21 @@ export default function Navbar() {
 								aria-expanded='false'>
 								<i className='fas fa-bell' />
 								<span className='badge rounded-pill badge-notification bg-danger'>
-									1
+									3
 								</span>
 							</a>
 							<ul
 								className='dropdown-menu dropdown-menu-end'
 								aria-labelledby='navbarDropdownMenuLink'>
-								<li>
-									<a className='dropdown-item' href='#!'>
-										Some news
-									</a>
-								</li>
-								<li>
-									<a className='dropdown-item' href='#!'>
-										Another news
-									</a>
-								</li>
-								<li>
-									<a className='dropdown-item' href='#!'>
-										Something else here
-									</a>
-								</li>
+								{notifications.map(({ text, to, index }) => {
+									return (
+										<li key={index}>
+											<a key={index} className='dropdown-item' href={to}>
+												{text}
+											</a>
+										</li>
+									);
+								})}
 							</ul>
 						</div>
 
@@ -169,21 +177,15 @@ export default function Navbar() {
 							<ul
 								className='dropdown-menu dropdown-menu-end'
 								aria-labelledby='navbarDropdownMenuAvatar'>
-								<li>
-									<a className='dropdown-item' href='#!'>
-										My profile
-									</a>
-								</li>
-								<li>
-									<a className='dropdown-item' href='#!'>
-										Settings
-									</a>
-								</li>
-								<li>
-									<a className='dropdown-item' href='#!'>
-										Logout
-									</a>
-								</li>
+								{myProfile.map(({ text, to, index }) => {
+									return (
+										<li key={index}>
+											<a key={index} className='dropdown-item' href={to}>
+												{text}
+											</a>
+										</li>
+									);
+								})}
 							</ul>
 						</div>
 					</div>
