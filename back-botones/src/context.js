@@ -109,7 +109,30 @@ class ProductProvider extends Component {
 	};
 
 	decrement = (id) => {
-		console.log('This is the decrement method!');
+		let tmpCart = [...this.state.cart];
+		const selectedProduct = tmpCart.find((item) => {
+			return item.id === id;
+		});
+
+		const index = tmpCart.indexOf(selectedProduct);
+		const product = tmpCart[index];
+
+		product.count -= 1;
+
+		if (product.count === 0) {
+			this.removeItem(id);
+		} else {
+			product.total = product.count * product.price;
+
+			this.setState(
+				() => {
+					return { cart: [...tmpCart] };
+				},
+				() => {
+					this.addTotals();
+				}
+			);
+		}
 	};
 
 	removeItem = (id) => {
