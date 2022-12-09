@@ -23,7 +23,7 @@ root.render(
 					<Route path='/products' element={<ProductList />} />
 					<Route path='/details' element={<ProductDetails />} />
 					<Route path='/cart' element={<Cart />} />
-					<Route element={<NotFound />} />
+					<Route path='*' exact element={<NotFound />} />
 				</Routes>
 				<Modal />
 			</BrowserRouter>
