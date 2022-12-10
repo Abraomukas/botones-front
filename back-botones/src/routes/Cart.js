@@ -22,6 +22,7 @@ export default function Cart() {
 									<Columns />
 									<List data={data} />
 									<Totals data={data} />
+									//TODO Payment method button here
 								</React.Fragment>
 							);
 						} else {
