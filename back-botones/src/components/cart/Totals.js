@@ -31,6 +31,7 @@ export default function Totals({ data }) {
 							<span className='text-title'>total : </span>
 							<strong>$ {cartTotal}</strong>
 						</h5>
+						//TODO Paypal button
 					</div>
 				</div>
 			</div>
