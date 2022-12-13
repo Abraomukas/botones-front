@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 import { ButtonContainer } from '../components/Button';
-import Navbar from '../components/Navbar';
 
 import { ProductConsumer } from '../context';
 
@@ -10,9 +9,6 @@ export default class ProductDetails extends Component {
 	render() {
 		return (
 			<div>
-				<header>
-					<Navbar />
-				</header>
 				<main>
 					<ProductConsumer>
 						{(product) => {
