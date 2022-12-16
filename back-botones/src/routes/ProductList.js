@@ -16,7 +16,7 @@ export default function ProductList() {
 							{(data) => {
 								return data.products.map((product) => {
 									return (
-										<div className='col-lg-3 col-md-6'>
+										<div className='col-12'>
 											<Product key={product.id} product={product} />
 										</div>
 									);
