@@ -55,6 +55,8 @@ export default class Product extends Component {
 
 const ProductWrapper = styled.div`
 	.card {
+		min-width: 200px;
+		min-height: 300px;
 		border-color: transparent;
 		transition: all 1s linear;
 	}
